@@ -1,0 +1,36 @@
+{
+  "name": "Complex-Counter",
+  "version": "1.0.0",
+  "description": "Project Complex Counter group 20608",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/wdio wdio.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Group20608/Complex-Counter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Group20608/Complex-Counter/issues"
+  },
+  "homepage": "https://github.com/Group20608/Complex-Counter#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/register": "^7.10.1",
+    "@wdio/cli": "^6.1.17",
+    "@wdio/local-runner": "^6.1.17",
+    "@wdio/mocha-framework": "^6.1.17",
+    "@wdio/spec-reporter": "^6.1.14",
+    "@wdio/sync": "^6.1.14",
+    "chromedriver": "^83.0.0",
+    "wdio-chromedriver-service": "^6.0.3"
+  },
+  "dependencies": {
+    "chai": "^4.2.0"
+  }
+}
