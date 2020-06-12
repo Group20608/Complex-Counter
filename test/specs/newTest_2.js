@@ -1,4 +1,4 @@
-const {expect} = require ('chai');
+const {expect} = require('chai');
 
 describe('page', () => {
 
@@ -95,7 +95,7 @@ describe('Verify that a new counter is added after clicking on “Add counter”
 });
 
 describe('Verify that a new counter can be added when the name of the counter' +
-  ' in “Add Name Field” more than 6 characters.', () => {
+    ' in “Add Name Field” more than 6 characters.', () => {
 
   it('should open app', () => {
     browser.url('https://likejean.github.io/homework-5/');
@@ -205,27 +205,15 @@ describe('Verify that correct set of Sub buttons and Add buttons is displayed fo
   });
 
   it('verify add buttons from 1 to 9 present', () => {
-    expect($('[step="1"]').isExisting()).true;
-    expect($('[step="2"]').isExisting()).true;
-    expect($('[step="3"]').isExisting()).true;
-    expect($('[step="4"]').isExisting()).true;
-    expect($('[step="5"]').isExisting()).true;
-    expect($('[step="6"]').isExisting()).true;
-    expect($('[step="7"]').isExisting()).true;
-    expect($('[step="8"]').isExisting()).true;
-    expect($('[step="9"]').isExisting()).true;
+    for (let i = 1; i < 10; i++) {
+      expect($(`[step="${i}"]`).isExisting()).true;
+    }
   });
 
   it('verify sub buttons from -1 to -9 present', () => {
-    expect($('[step="-1"]').isExisting()).true;
-    expect($('[step="-2"]').isExisting()).true;
-    expect($('[step="-3"]').isExisting()).true;
-    expect($('[step="-4"]').isExisting()).true;
-    expect($('[step="-5"]').isExisting()).true;
-    expect($('[step="-6"]').isExisting()).true;
-    expect($('[step="-7"]').isExisting()).true;
-    expect($('[step="-8"]').isExisting()).true;
-    expect($('[step="-9"]').isExisting()).true;
+    for (let i = 1; i < 10; i++) {
+      expect($(`[step="${-i}"]`).isExisting()).true;
+    }
   });
 });
 
@@ -237,7 +225,7 @@ describe('verify that upper LF2 accepts from 1 to 9', () => {
 
   it('should type number from 1 to 9 and check ERROR is not appear', () => {
     $('button[name="positive"]').click();
-    for(let i = 1; i < 10; i++) {
+    for (let i = 1; i < 10; i++) {
       $('input[name="upper"]').setValue(i);
       expect($('span[style="color: red;"]').isExisting()).false;
     }
