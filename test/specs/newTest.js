@@ -1,4 +1,4 @@
-const {expect} = require ('chai');
+const {expect} = require('chai');
 
 describe('page', () => {
     it('should have the right title', () => {
@@ -9,40 +9,40 @@ describe('page', () => {
 
     it('the page header should be Counters', () => {
 
-        expect($('//h1[@class=\'header\']').getText()).equal('Counters');
+        expect(browser.$('//h1[@class=\'header\']').getText()).equal('Counters');
         browser.pause(2000);
     });
 
     it('should verify total is 0', () => {
-        const total = $('//h3').getText();
+        const total = browser.$('//h3').getText();
         expect(total).eq('Total: 0');
     });
 
-    it('should verify that Limit Field1 present on the page', () =>{
-       expect($('//button[@name="negative"]').isDisplayed()).true;
+    it('should verify that Limit Field1 present on the page', () => {
+        expect(browser.$('//button[@name="negative"]').isDisplayed()).true;
 
     });
 
-    it('should verify that Limit Field2 present on the page', () =>{
+    it('should verify that Limit Field2 present on the page', () => {
         expect($('button[name="positive"]').isDisplayed()).true;
     });
 
-    it('should verify that Change step options in LF1 present on the page', () =>{
+    it('should verify that Change step options in LF1 present on the page', () => {
         const element = $('button[name="positive"]').getText();
         expect(element).eq('CHANGE STEP OPTIONS?')
     });
 
-    it('should verify that Change step options in LF2present on the page', () =>{
+    it('should verify that Change step options in LF2present on the page', () => {
         const element = $('button[name="negative"]').getText();
         expect(element).eq('CHANGE STEP OPTIONS?')
     });
 
-    it('should verify that Delete button present on the page', () =>{
+    it('should verify that Delete button present on the page', () => {
         expect($('[id="1"]').isDisplayed()).true;
 
     });
 
-    it('should verify that Reset button present on the page', () =>{
+    it('should verify that Reset button present on the page', () => {
         expect($('[class="btn-primary btn Ripple-parent reset"]').isDisplayed()).true;
 
     });
@@ -53,7 +53,7 @@ describe('page', () => {
     });
 
     it('should verify Edit Counter Title', () => {
-        expect($('//label[contains(text(),"Edit")]').getText()).equal('Edit Counter Title:');
+        expect(browser.$('//label[contains(text(),"Edit")]').getText()).equal('Edit Counter Title:');
 
     });
 
@@ -64,7 +64,7 @@ describe('page', () => {
     });
 
     it('should verify Enter Counter Title', () => {
-        expect($('//label[contains(text(),"Enter")]').getText()).equal('Enter Counter Title:');
+        expect(browser.$('//label[contains(text(),"Enter")]').getText()).eq('Enter Counter Title:');
 
     });
 
@@ -75,7 +75,8 @@ describe('page', () => {
     });
 
     it('should verify Enter Initial Count', () => {
-     expect($('//label[contains(text(),\'Enter Initial Count:\')]'))
+        //expect(browser.$('//label[contains(text(),"Enter Initial Count:")]'));
+        expect(browser.$('//div[@class="container"]//label').getText()).eq("Enter Counter Title:");
 
     });
 
@@ -86,9 +87,6 @@ describe('page', () => {
     });
 
     it('should verify ADD COUNTER', () => {
-        expect($('//label[contains(text(),\'ADD COUNTER\')]'))
-
+        expect(browser.$('//label[contains(text(),"ADD COUNTER")]'));
     });
-
-
 });
