@@ -168,7 +168,8 @@ describe('Verify LF1 does not accepts “0"', () => {
   });
 
   it('verify that LF1 is empty', () => {
-
+    const element = $('[name="lower"]').getValue();
+    expect(element).eq('');
   });
 
   it('verify ERROR is present', () => {
@@ -185,7 +186,8 @@ describe('Verify LF2 does not accepts “0" ', () => {
   });
 
   it('should verify that LF2 is empty', () => {
-
+    const element = $('[name="upper"]').getValue();
+    expect(element).eq('');
   });
 
   it('verify ERROR is present', () => {
