@@ -1,4 +1,5 @@
-const {expect} = require('chai');
+ // const {expect} = require('chai');
+ import {expect} from 'chai';
 
 describe('page', () => {
 
