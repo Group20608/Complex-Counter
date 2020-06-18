@@ -1,5 +1,5 @@
-import AppPage from "./AppPage";
-import {userData, headerUserPage} from "./loginData"
+import AppPage from "../AppPage";
+import {userData, headerUserPage, headerLoginPage} from "./loginData"
 class loginPage extends AppPage{
 
     get header(){
@@ -21,9 +21,9 @@ class loginPage extends AppPage{
         return $('h1');
     }
 
-
-
     login(){
+        this.open();
+        browser.waitUntil(()=> this.header.getText() === headerLoginPage);
         this.emailInput.setValue(userData.email);
         this.passwordInput.setValue(userData.password);
         this.loginBtn.click();
