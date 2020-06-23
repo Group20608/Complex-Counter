@@ -33,9 +33,9 @@ class Page extends AppPage{
     get defaultCounterText(){
         return $('[name="edit"]');
     }
-
-
-
+    get enterCounterTitle() {
+        return $('//label[contains(text(),"Enter")]');
+    }
 
 }
 export default new Page();
