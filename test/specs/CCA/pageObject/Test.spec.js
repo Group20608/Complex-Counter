@@ -6,12 +6,7 @@ describe('', () => {
 
     it('should open browser page and check title', function () {
       Page.open();
-      expect(browser.getTitle()).eq(DataPage.appTitle);
     });
-
-  it('the page header should be Counters', () => {
-    expect((Page.Header).getText()).eq(DataPage.title);
-  });
 
   it('should verify total is 0', () => {
     expect((Page.Total).getText()).eq(DataPage.total);
@@ -188,20 +183,20 @@ describe('Verify LF2 does not accepts “0" ', () => {
 describe('Verify that correct set of Sub buttons and Add buttons is displayed for max and min range', () => {
 
   it('should open app and type LF2 "9" ', () => {
-   Page.open()
+   Page.open();
     Page.LF2.click();
     Page.limitInputUpper.setValue(9);
   });
 
   it('verify add buttons from 1 to 9 present', () => {
-    for (let i = 1; i < 10; i++) {
-      expect($(`[step="${i}"]`).isExisting()).true;
-    }
+      for (let i = 1; i < 10; i++) {
+        expect(Page.addButtons(i).isExisting()).true;
+      }
   });
 
   it('verify sub buttons from -1 to -9 present', () => {
     for (let i = 1; i < 10; i++) {
-      expect($(`[step="${-i}"]`).isExisting()).true;
+      expect(Page.addButtons(-i).isExisting()).true;
     }
   });
 });

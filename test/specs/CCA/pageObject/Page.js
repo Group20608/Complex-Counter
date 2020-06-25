@@ -1,10 +1,10 @@
 import AppPage from "../../PO/AppPage";
+import {DataPage} from "./Data";
 
 class Page extends AppPage{
     open(path) {
         super.open("https://likejean.github.io/homework-5/");
-
-
+        browser.waitUntil(() => browser.getTitle() === DataPage.appTitle )
     }
     get Header(){
         return $('//h1[@class="header"]');
@@ -56,6 +56,10 @@ class Page extends AppPage{
     }
     get errorGreaterZero(){
         return $('span[style="color: red;"]');
+    }
+
+    addButtons(i){
+        return $(`[step="${(i)}"]`);
     }
 
 
