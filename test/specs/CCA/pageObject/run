@@ -1,0 +1,1 @@
+node_modules\.bin\wdio.cmd --spec test\specs\CCA\pageObject\Test.spec.js

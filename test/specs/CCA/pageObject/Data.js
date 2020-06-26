@@ -14,4 +14,10 @@ const DataPage = {
     errorGreaterLower: 'ERROR: Upper Limit Must be GREATER than Lower Limit',
 };
 
-export {DataPage}
+const coordinatesIF1 = {
+    xOffset: 160,
+    yOffset: 15,
+};
+
+
+export {DataPage, coordinatesIF1}
