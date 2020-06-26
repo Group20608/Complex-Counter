@@ -4,7 +4,9 @@
   "description": "Project Complex Counter group 20608",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/wdio wdio.conf.js"
+    "test": "./node_modules/.bin/wdio wdio.conf.js",
+    "testspec": "node_modules/.bin/wdio.cmd --spec test/specs/CCA/pageObject/Test.spec.js",
+    "hardcode": "node_modules/.bin/wdio.cmd --spec test/specs/CCA/hardcode.js"
   },
   "repository": {
     "type": "git",
@@ -29,6 +31,7 @@
     "@wdio/spec-reporter": "^6.1.14",
     "@wdio/sync": "^6.1.14",
     "chromedriver": "^83.0.0",
+    "faker": "^4.1.0",
     "prettier": "2.0.5",
     "wdio-chromedriver-service": "^6.0.3"
   },

@@ -1,14 +1,8 @@
 import AppPage from "../../PO/AppPage";
-import {DataPage} from "./Data";
+import {DataPage, url} from "./Data";
 
 class Page extends AppPage{
-    open(path) {
-        super.open("https://likejean.github.io/homework-5/");
-        browser.waitUntil(() => browser.getTitle() === DataPage.appTitle )
-    }
-    get Header(){
-        return browser.$('//h1[@class="header"]');
-    }
+
     get Total(){
         return browser.$('//h3');
     }
@@ -57,14 +51,17 @@ class Page extends AppPage{
     get errorGreaterZero(){
         return $('span[style="color: red;"]');
     }
-
     get defaultBlackBtnNegativeOne(){
         return $('[step="-1"]');
-
     }
 
     addButtons(i){
         return $(`[step="${(i)}"]`);
+    }
+
+    open(path) {
+        super.open(url.pageCounter);
+        browser.waitUntil(() => browser.getTitle() === DataPage.appTitle )
     }
 
 
