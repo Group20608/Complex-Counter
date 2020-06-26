@@ -171,6 +171,12 @@ describe('Verify that correct set of Sub buttons and Add buttons is displayed fo
         browser.positionClick();
         expect(Page.defaultBlackBtnNegativeOne.isExisting()).false;
     });
+
+    it('should change default value when you click on the spinner, the  in the IF2', () => {
+
+
+
+    });
 });
 
 describe('verify that upper LF2 accepts from 1 to 9', () => {
