@@ -7,16 +7,16 @@ class Page extends AppPage{
         browser.waitUntil(() => browser.getTitle() === DataPage.appTitle )
     }
     get Header(){
-        return $('//h1[@class="header"]');
+        return browser.$('//h1[@class="header"]');
     }
     get Total(){
-        return $('//h3');
+        return browser.$('//h3');
     }
     get LF1(){
-        return $('//button[@name="negative"]');
+        return browser.$('//button[@name="negative"]');
     }
     get LF2(){
-        return $('//button[@name="positive"]');
+        return browser.$('//button[@name="positive"]');
     }
     get DeleteBtn(){
         return $('[id="1"]');
@@ -28,13 +28,13 @@ class Page extends AppPage{
         return $$('h3')[1];
     }
     get editCounterTitle(){
-        return $('//label[contains(text(),"Edit")]');
+        return browser.$('//label[contains(text(),"Edit")]');
     }
     get defaultCounterText(){
         return $('[name="edit"]');
     }
     get enterCounterTitle() {
-        return $('//label[contains(text(),"Enter")]');
+        return browser.$('//label[contains(text(),"Enter")]');
     }
     get counterName(){
         return $('[name="name"]');
@@ -56,6 +56,11 @@ class Page extends AppPage{
     }
     get errorGreaterZero(){
         return $('span[style="color: red;"]');
+    }
+
+    get defaultBlackBtnNegativeOne(){
+        return $('[step="-1"]');
+
     }
 
     addButtons(i){

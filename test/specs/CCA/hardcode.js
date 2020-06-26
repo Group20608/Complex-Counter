@@ -1,5 +1,5 @@
- // const {expect} = require('chai');
- import {expect} from 'chai';
+// RUN TESTS -> node_modules\.bin\wdio.cmd --spec test\specs\CCA\hardcode.js
+import {expect} from 'chai';
 
 describe('page', () => {
 
@@ -129,21 +129,13 @@ describe('Verify the deletion of the default counter', () => {
 
 describe('Verify that after deleting any counter will assign a new order number, to keep it ascending', () => {
 
-  /*it('should open app and add two counters', () => {
+  it('should open app and add two counters', () => {
     browser.url('https://likejean.github.io/homework-5/');
-    $('[name="name"]').setValue('2.counter');
-    $('[class="btn-success btn Ripple-parent add col-6"]').click();
-    $('[name="name"]').setValue('3.counter');
-    $('[class="btn-success btn Ripple-parent add col-6"]').click();
-  });*/
-
-    it('should open app and add two counters', () => {
-        browser.url('https://likejean.github.io/homework-5/');
-        for (let i = 2; i < 4 ; i++) {
-            $('[name="name"]').setValue(`${i}.counter`);
-            $('[class="btn-success btn Ripple-parent add col-6"]').click();
-        }
-    });
+    for (let i = 2; i < 4; i++) {
+      $('[name="name"]').setValue(`${i}.counter`);
+      $('[class="btn-success btn Ripple-parent add col-6"]').click();
+    }
+  });
 
   it('should verify “2.counter” will become “1.counter” in ascending order after delete first counter', () => {
     $('[id="1"]').click();
