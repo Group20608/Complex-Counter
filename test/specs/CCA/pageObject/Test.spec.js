@@ -1,6 +1,8 @@
 import {expect} from 'chai';
 import Page from "./Page";
-import {DataPage, coordinatesIF1} from "./Data"
+import {coordinatesIF1} from "./Data"
+
+const data = require('./../../../../data/expected').DataPage;
 
 describe('', () => {
 
@@ -9,7 +11,7 @@ describe('', () => {
     });
 
     it('should verify total is 0', () => {
-        expect((Page.Total).getText()).eq(DataPage.total);
+        expect((Page.Total).getText()).eq(data.total);
     });
 
     it('should verify that Limit Field1 present on the page', () => {
@@ -21,11 +23,11 @@ describe('', () => {
     });
 
     it('should verify that Change step options in LF1 present on the page', () => {
-        expect((Page.LF1).getText()).eq(DataPage.LF1);
+        expect((Page.LF1).getText()).eq(data.LF1);
     });
 
     it('should verify that Change step options in LF2 present on the page', () => {
-        expect((Page.LF2).getText()).eq(DataPage.LF2);
+        expect((Page.LF2).getText()).eq(data.LF2);
     });
 
     it('should verify that Delete button present on the page', () => {
@@ -37,33 +39,33 @@ describe('', () => {
     });
 
     it('should verify Default Counter', () => {
-        expect((Page.defaultCounterFirst).getText()).eq(DataPage.defaultCounterFirst);
+        expect((Page.defaultCounterFirst).getText()).eq(data.defaultCounterFirst);
     });
 
     it('should verify Edit Counter Title', () => {
-        expect((Page.editCounterTitle).getText()).eq(DataPage.editCounterTitle);
+        expect((Page.editCounterTitle).getText()).eq(data.editCounterTitle);
     });
 
     it('should verify Default Counter Field', () => {
-        expect((Page.defaultCounterText).getValue()).eq(DataPage.defaultCounterText);
+        expect((Page.defaultCounterText).getValue()).eq(data.defaultCounterText);
     });
 
     it('should verify Enter Counter Title', () => {
-        expect((Page.enterCounterTitle).getText()).eq(DataPage.enterCounterTitle);
+        expect((Page.enterCounterTitle).getText()).eq(data.enterCounterTitle);
     });
 
 
     it('should verify Counter Name Field', () => {
-        expect((Page.counterName).getValue()).eq(DataPage.counterName);
+        expect((Page.counterName).getValue()).eq(data.counterName);
     });
 
     it('should verify Enter Initial Count', () => {
-        expect((Page.enterCounterTitle).getText()).eq(DataPage.enterCounterTitle)
+        expect((Page.enterCounterTitle).getText()).eq(data.enterCounterTitle)
 
     });
 
     it('should verify Enter Initial Count', () => {
-        expect((Page.counterValueInput).getValue()).eq('50')
+        expect((Page.counterValueInput).getValue()).eq(data.totalInput)
     });
 
 });
@@ -79,7 +81,7 @@ describe('Verify that a new counter is added after clicking on “Add counter”
     });
 
     it('should verify new counter created', () => {
-        expect((Page.defaultCounterSecond).getText()).eq(DataPage.defaultCounterSecond)
+        expect((Page.defaultCounterSecond).getText()).eq(data.defaultCounterSecond)
     });
 
 });
@@ -91,13 +93,13 @@ describe('Verify that a new counter can be added when the name of the counter' +
         Page.open();
     });
 
-    it('should Insert name “counter2"(8 characters) is entered into “Add Name Field”', () => {
-        Page.counterName.setValue('counter2');
+    it('should Insert name “2.counter"(8 characters) is entered into “Add Name Field”', () => {
+        Page.counterName.setValue(data.counterNameSecond);
         Page.addCounterBnt.click();
     });
 
     it('should verify new counter created', () => {
-        expect((Page.defaultCounterSecond).getText()).eq('2. counter2')
+        expect((Page.defaultCounterSecond).getText()).eq(data.defaultCounterSecond.split('').slice(0, 3).join('') + data.counterNameSecond)
     });
 });
 
@@ -109,7 +111,7 @@ describe('Verify the deletion of the default counter', () => {
 
     it('should click button "DELETE"', () => {
         Page.DeleteBtn.click();
-        expect($$('h3').length).eq(1);
+        expect($$('h3').length).eq(data.lengthH3);
     });
 
 });
@@ -126,7 +128,7 @@ describe('Verify that after deleting any counter will assign a new order number,
 
     it('should verify “2.counter” will become “1.counter” in ascending order after delete first counter', () => {
         Page.DeleteBtn.click();
-        expect((Page.defaultCounterFirst).getText()).eq('1. 2.counter');
+        expect((Page.defaultCounterFirst).getText()).eq(data.defaultCounterFirst.split('').slice(0, 3).join('') + data.counterNameSecond);
     });
 });
 
@@ -135,13 +137,13 @@ describe('Verify that when user refresh-reload the app page resets to initial in
 
     it('should open app and edit counter name', () => {
         Page.open();
-        Page.defaultCounterText.setValue('counter 1');
-        expect((Page.defaultCounterFirst).getText()).eq('1. counter 1');
+        Page.defaultCounterText.setValue(data.counterNameFirst);
+        expect((Page.defaultCounterFirst).getText()).eq(data.defaultCounterFirst.split('').slice(0, 3).join('') + data.counterNameFirst);
     });
 
     it('should refresh app page and check default name ', () => {
         browser.refresh();
-        expect((Page.defaultCounterFirst).getText()).eq('1. Default Counter');
+        expect((Page.defaultCounterFirst).getText()).eq(data.defaultCounterFirst);
     });
 });
 
@@ -150,7 +152,7 @@ describe('Verify that correct set of Sub buttons and Add buttons is displayed fo
     it('should open app and type LF2 "9" ', () => {
         Page.open();
         Page.LF2.click();
-        Page.limitInputUpper.setValue(9);
+        Page.limitInputUpper.setValue(data.inputMax);
     });
 
     it('verify add buttons from 1 to 9 present', () => {
